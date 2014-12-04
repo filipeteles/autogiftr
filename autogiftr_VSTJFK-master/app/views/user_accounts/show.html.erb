@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+	<div class="col-md-4">
+		<div class="panel panel-warning">
+			<div class="panel-heading">
+				<p class="panel-title">Account info</p>
+			</div>
+			<div class="panel-body">
+				<p>
+				  <strong>Name:</strong>
+				  <%= @user_account.name %>
+				</p>
+
+				<p>
+				  <strong>Address:</strong>
+				  <%= @user_account.address %>
+				</p>
+
+				<p>
+				  <strong>Phone:</strong>
+				  <%= @user_account.phone %>
+				</p>
+
+				<p>
+				  <strong>Email:</strong>
+				  <%= @user_account.user.email %>
+				</p>
+				
+				<%= link_to 'Edit', edit_user_account_path(@user_account), class: "btn btn-success btn-xs" %>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-8">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<p class="panel-title">My recipients</p>
+			</div>
+			<div class="panel-body">
+				<%= render 'recipients/index' %>
+
+			</div>
+		</div>
+	</div>
+</div>
+

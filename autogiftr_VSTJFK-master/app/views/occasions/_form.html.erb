@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h2>Add an occasion for ???</h2>
+          <%= simple_form_for(@occasion) do |f| %>
+            <% if @occasion.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@occasion.errors.count, "error") %> prohibited this occasion from being saved:</h2>
+
+                <ul>
+                <% @occasion.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+            <div class="form-group">
+              <%= f.input :name, input_html: { class: 'form-control'} %>
+            </div>
+            <div class="form-group">
+              <%= f.input :date, input_html: { class: 'form-control'} %>
+            </div>
+            <div class="form-group">
+              <%= f.input :message, input_html: { class: 'form-control'} %>
+            </div>
+            <div class="form-group">
+              <%= f.input :recipient_id, as: :hidden, input_html: { class: 'form-control', value: @recipient.id } %>
+            </div>
+            <div class="actions">
+              <%= f.submit 'Add occasion', class: 'btn btn-danger' %>
+            </div>
+            <%= link_to 'Cancel', user_account_path(current_user.user_account) %>
+
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>
