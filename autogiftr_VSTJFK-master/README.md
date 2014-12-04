@@ -7,3 +7,5 @@ This is a really cool app that helps people have gifts sent to their loved ones 
 *Devise
 
 Created by :Peter, Sylvain, Matt, Vijay, Kris, Filipe, Sean, Trent
+
+This is a big funny edit!
