@@ -6,4 +6,4 @@ This is a really cool app that helps people have gifts sent to their loved ones 
 *Bootstrap
 *Devise
 
-This is a big funnt edit!
+This is a big funny edit!
