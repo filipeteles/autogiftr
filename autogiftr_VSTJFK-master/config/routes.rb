@@ -3,7 +3,11 @@ Rails.application.routes.draw do
 
   resources :gifts
 
-  resources :occasions
+  resources :occasions do
+    member do 
+      get :add_gift_to, :gifts_delivered_for
+    end
+  end
 
   resources :recipients
 

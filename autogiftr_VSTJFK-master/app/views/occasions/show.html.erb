@@ -1,25 +1,36 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @occasion.name %>
+	<strong>Name:</strong>
+	<%= @occasion.recipient.name %>
 </p>
 
 <p>
-  <strong>Date:</strong>
-  <%= @occasion.date %>
+	<strong>Date:</strong>
+	<%= @occasion.date %>
 </p>
 
 <p>
-  <strong>Message:</strong>
-  <%= @occasion.message %>
+	<strong>Message:</strong>
+	<%= @occasion.message %>
 </p>
 
 <p>
-  <strong>Recipient:</strong>
-  <%= @occasion.recipient %>
+	<strong>Recipient:</strong>
+	<%= @occasion.recipient %>
 </p>
 
+
+<% @gifts.each do |gift| %>
+<%= link_to gift.name, add_gift_to_occasion_path(@occasion, gift: gift.id), class: 'btn btn-warning' %> &nbsp;
+<% end %>
+
+<h2>Chosen gifts</h2>
+<ul>
+	<% @occasion.gifts.each do |gift| %>
+	<li><%= gift.name %></li>
+	<% end %>
+</ul>
 <%= link_to 'Edit', edit_occasion_path(@occasion) %> |
 <%= link_to 'Back', occasions_path %>
 

@@ -1,18 +1,40 @@
 <p id="notice"><%= notice %></p>
 
+<div class="row">
+	<div class="col-md-4">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h2 class="panel-title"><%= @gift.name %></h2>
+			</div>
+			<div class="panel-body">
+				<%= image_tag(@gift.picture_url, class: 'img-thumbnail img-responsive') %>
+				<br>
+				<p><%= @gift.description.html_safe %></p>
+				<p><%= number_to_currency(@gift.price) %></p>
+				<br>
+
+				<% if user_signed_in? %>
+				<% if current_user.has_role? :admin %>
+				<%= link_to 'Edit', edit_gift_path(@gift), class: 'btn btn-info btn-xs' %>
+				<% end %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
 <p>
-  <strong>Name:</strong>
-  <%= @gift.name %>
+	<strong>Name:</strong>
+	<%= @gift.name %>
 </p>
 
 <p>
-  <strong>Description:</strong>
-  <%= @gift.description %>
+	<strong>Description:</strong>
+	<%= @gift.description %>
 </p>
 
 <p>
-  <strong>Price:</strong>
-  <%= @gift.price %>
+	<strong>Price:</strong>
+	<%= @gift.price %>
 </p>
 
 <%= link_to 'Edit', edit_gift_path(@gift) %> |

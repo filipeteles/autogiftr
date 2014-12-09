@@ -1,13 +1,24 @@
 class OccasionsController < ApplicationController
-  before_action :set_occasion, only: [:show, :edit, :update, :destroy]
+  before_action :set_occasion, only: [:gifts_delivered_for, :add_gift_to, :show, :edit, :update, :destroy]
   respond_to :html
+
+  def add_gift_to
+    @occasion.gifts << Gift.find(params[:gift])
+    redirect_to :back
+  end
+
+  def gifts_delivered_for
+    @occasion.update_attribute_with_validation_skipping()(delivered: true)
+    redirect_to :back
+  end
+
   def index
     @occasions = Occasion.all
     respond_with(@occasions)
   end
 
   def show
-    @gifts = Gift.new
+    @gifts = Gift.all
     respond_with(@occasion)
   end
 

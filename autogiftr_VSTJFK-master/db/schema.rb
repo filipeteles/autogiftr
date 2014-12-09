@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141127065401) do
+ActiveRecord::Schema.define(version: 20141204092036) do
 
   create_table "gift_occasions", force: true do |t|
     t.integer  "gift_id"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20141127065401) do
     t.integer  "recipient_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "delivered"
   end
 
   add_index "occasions", ["recipient_id"], name: "index_occasions_on_recipient_id"

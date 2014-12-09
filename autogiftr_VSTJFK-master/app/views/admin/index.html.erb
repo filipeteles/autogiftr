@@ -16,10 +16,10 @@
 					</thead>
 					<tbody>
 						<% @gifts.each do |gift| %>
-							<tr>
-								<td><%= gift.name %></td>
-								<td><%= gift.price %></td>
-							</tr>
+						<tr>
+							<td><%= gift.name %></td>
+							<td><%= gift.price %></td>
+						</tr>
 						<% end %>
 					</tbody>
 				</table>
@@ -27,4 +27,54 @@
 			</div>
 		</div>
 	</div>
+	<div class="col-md-4">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<p class="panel-title">Upcoming occasions</p>
+			</div>
+			<div class="panel-body">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>Date</th>
+							<th>Address</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @future_occasions.each do |occasion| %>
+						<tr>
+							<td><%= occasion.date %></td>
+							<td><%= occasion.recipient.address %></td>
+							<td><%= link_to 'Delivered', gifts_delivered_for_occasion_path(occasion), class: 'btn btn-info' %></td>
+						</tr>
+						<% end %>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="panel panel-info">
+		<div class="panel-heading">
+			<p class="panel-title">Delivered gifts</p>
+		</div>
+		<div class="panel-body">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>Date</th>
+						<th>Address</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @delivered.each do |occasion| %>
+					<tr>
+						<td><%= occasion.date %></td>
+						<td><%= occasion.recipient.address %></td>
+						<td><%= link_to 'Undelivered', gifts_delivered_for_occasion_path(occasion), class: 'btn btn-info' %></td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
 </div>
